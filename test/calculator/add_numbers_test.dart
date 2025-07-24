@@ -19,4 +19,8 @@ void main() {
   test('returns sum for multiple comma-separated numbers', () {
     expect(calculator('1,2,3'), 6);
   });
+  // Allow the add method to handle new lines between numbers
+  test('handles newlines as delimiters', () {
+    expect(calculator('1\n2,3'), 6);
+  });
 }
