@@ -13,4 +13,10 @@ void main() {
   test('returns sum for two comma-separated numbers', () {
     expect(calculator('1,5'), 6);
   });
+
+  //Allow the add method to handle any amount of numbers.
+
+  test('returns sum for multiple comma-separated numbers', () {
+    expect(calculator('1,2,3'), 6);
+  });
 }
