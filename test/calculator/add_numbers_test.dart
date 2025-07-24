@@ -23,4 +23,20 @@ void main() {
   test('handles newlines as delimiters', () {
     expect(calculator('1\n2,3'), 6);
   });
+  //Support different delimiters
+  test('supports custom delimiter', () {
+    expect(calculator('//;\n1;2'), 3);
+  });
+  //negative numbers not allowed
+  test('throws exception with all negative numbers listed', () {
+    final calculator = AddNumbers();
+    expect(
+      () => calculator('1,-2,-3'),
+      throwsA(
+        predicate(
+          (e) => e.toString() == 'Negative numbers not allowed: -2, -3',
+        ),
+      ),
+    );
+  });
 }
